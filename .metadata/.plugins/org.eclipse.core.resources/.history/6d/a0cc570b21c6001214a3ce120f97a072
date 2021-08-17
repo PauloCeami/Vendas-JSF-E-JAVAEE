@@ -1,0 +1,187 @@
+
+<%@page import="br.pdv.model.RepresentanteDao"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page 
+    language="java" 
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" 
+    import="java.util.List,
+    br.pdv.model.PedidoBean,
+    br.pdv.model.PedidoDao,
+    br.pdv.model.ClienteBean,
+    br.pdv.model.ClienteDao,
+    br.pdv.model.ItensVendaBean,
+    br.pdv.model.ItensVendaDao,
+    br.pdv.model.RepresentanteBean,
+    br.pdv.model.RepresentanteDao,
+    br.util.Conv
+
+
+    "%>
+
+<%
+    ClienteBean cli = null;
+    ClienteDao cliDao = null;
+
+    PedidoBean ped = null; // objeto da classe bean getter e setter
+    PedidoDao pDao = new PedidoDao();  // objeto da classe Dao 
+    RepresentanteBean rbean = null;
+    RepresentanteDao rDao = new RepresentanteDao();
+
+    ItensVendaBean iTensBean = null;
+    ItensVendaDao iTensDao = new ItensVendaDao();
+
+    // este getAttribute esta recebendo o id vindo do vwListaCliente que por sua 
+    //vez mandou a acao pra camada action com ConsultaCliente.java onde ele pegou 
+    // o id do pedente e pesquisou pedente pelo seu id vindo da lista.
+    if (null != request.getAttribute("id_do_pedido")) {
+        ped = (PedidoBean) request.getAttribute("id_do_pedido");
+    }
+
+
+
+    if (null != request.getAttribute("id_do_cliente")) {
+        cli = (ClienteBean) request.getAttribute("id_do_cliente");
+    }
+
+
+    if (null != request.getAttribute("id_do_representante")) {
+        rbean = (RepresentanteBean) request.getAttribute("id_do_representante");
+    }
+
+
+
+%>
+
+<%@ page contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Pedidos</title>
+
+        <style type="text/css">
+            <%@ include  file="css/bootstrap.css"%>
+        </style>
+
+        <style type="text/css">
+            <%@ include  file="css/bootstrap-responsive.css"%>
+        </style>
+        <style type="text/css">
+            form label, form input {
+                display: block;
+                margin: 0 0 10px 0;
+            }
+            form input {
+                height: 20px;   
+            }
+
+            label.error {
+                border: 1px solid red;
+                color: red;
+                font-weight: bold;
+                padding: 3px;
+                background-color: #99CCFF;
+                margin: 6px 0;
+                width: 120px;
+                text-align: center;
+            }
+        </style>   
+    </head>
+    <body>
+
+        <%@ include file="Menu.jsp"  %>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="span10">
+                    <table class="table">
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">         
+                <form action="." method="post">  
+
+                    <fieldset class="fieldsetVendas">
+                        <legend>Visualização do Pedido <%=null != ped ? ped.getID() : ""%> </legend>
+
+                        <div class="formulario">
+                            <label class="labelFormulario">Pedido Número.... <%=ped.getID()%></label>
+
+                        </div>
+                        <div class="clear"></div>
+
+                        <div class="formulario">
+                            <label class="labelFormulario">Data do Pedido.... <%=Conv.cal2dtbr(ped.getDATA_PEDIDO())%></label>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="formulario">
+                            <label class="labelFormulario">Data da Entrega... <%=Conv.cal2dtbr(ped.getDATA_ENTREGA())%></label>
+                        </div>
+                        <div class="clear"></div> 
+                        <div class="formulario">
+                            <label class="labelFormulario">Nome do Cliente... <%=cli.getNome()%></label>
+                        </div>
+
+
+                        <div class="clear"></div>     
+
+
+                        <div class="formulario">
+                            <label class="labelFormulario">Representante..... <%=rbean.getNome()%></label>
+                        </div>
+
+                    </fieldset>
+
+                </form>
+
+            </div>
+
+
+
+            <div class="row">         
+                <div class="fieldsetLista">
+                    <legend>Items da Venda </legend>                   
+
+                    <table class="table table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>                                 
+                                <th>Quantidade</th>    
+                                <th>Preço Unitário</th>
+                                <th>Total por Item</th>                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                for (ItensVendaBean IDP : iTensDao.Busca_os_Itens_De_1_Venda_Apenas(ped.getID())) {
+                            %>
+                            <tr>
+                                <td><%=IDP.getPRODUTOID()%></td>
+                                <td><%=IDP.getQUANTIDADE()%></td> 
+                                <td><%=IDP.getPRECO_UNITARIO()%></td>                        
+
+                                <td><%=(IDP.getQUANTIDADE() * IDP.getPRECO_UNITARIO())%></td> 
+
+                            </tr> 
+                            <%
+                                }
+
+
+
+                            %>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>>
+
+    </body>
+
+</html>
+

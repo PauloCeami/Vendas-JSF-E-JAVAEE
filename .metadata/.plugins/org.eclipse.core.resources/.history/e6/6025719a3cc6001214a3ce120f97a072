@@ -1,0 +1,40 @@
+package br.pdv.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.pdv.model.ItensVendaBean;
+import br.pdv.model.ItensVendaDao;
+import br.pdv.model.PedidoBean;
+import br.pdv.model.PedidoDao;
+
+public class RemovePedido implements Command {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		
+		
+		
+		ItensVendaBean iBean = new ItensVendaBean();
+		ItensVendaDao iDao = new ItensVendaDao();
+		
+		PedidoBean pBean = new PedidoBean();
+		PedidoDao pDao = new PedidoDao();
+		
+		
+		
+		int IT =  Integer.parseInt(request.getParameter("idPedido"));		
+		iDao.RemoveItensPedido(IT);
+		
+		
+		
+	    request.setAttribute("mensagem", "O Pedido " + request.getParameter("idPedido")+" foi excluido ");
+        request.setAttribute("destino", "./?acao=ConsultaPedidosCliente");   
+        request.getRequestDispatcher("Mensagem").forward(request, response);
+		
+		
+		
+	}
+
+}

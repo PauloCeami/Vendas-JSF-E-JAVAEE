@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+C:\Users\paulosantos3\Desktop\ProjetoVendas\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2491737801.index
+2988517966.index
+2853637638.index
+3769078850.index
+3661512566.index

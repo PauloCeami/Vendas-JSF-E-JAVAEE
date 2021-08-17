@@ -1,0 +1,5 @@
+INDEX VERSION 1.126
+C:\Users\paulosantos3\Desktop\ProjetoVendas\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2491737801.index
+\PDV\src
+C:\Users\Analista\Desktop\ProjetoVendas\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2491737801.index
+\PDV\src

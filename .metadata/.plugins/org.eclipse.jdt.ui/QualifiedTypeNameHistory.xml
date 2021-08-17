@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.util.Conv"/>
+<fullyQualifiedTypeName name="br.pdv.model.RepresentanteBean"/>
+<fullyQualifiedTypeName name="br.pdv.action.MovimentacaoVendas_RegraNegocio"/>
+<fullyQualifiedTypeName name="br.pdv.model.RepresentanteDao"/>
+<fullyQualifiedTypeName name="br.pdv.model.ProdutoBean"/>
+<fullyQualifiedTypeName name="br.pdv.model.ProdutoDao"/>
+<fullyQualifiedTypeName name="br.pdv.action.Command"/>
+<fullyQualifiedTypeName name="br.pdv.model.ItensVendaBean"/>
+<fullyQualifiedTypeName name="br.pdv.model.ItensVendaDao"/>
+<fullyQualifiedTypeName name="br.pdv.model.PedidoBean"/>
+<fullyQualifiedTypeName name="br.pdv.model.PedidoDao"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="br.pdv.model.ClienteBean"/>
+<fullyQualifiedTypeName name="br.pdv.model.ClienteDao"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+</qualifiedTypeNameHistroy>

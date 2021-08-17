@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <style type="text/css">
+            <%@ include  file="css/bootstrap.css"%>
+        </style>
+
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+          <script src="../assets/js/html5shiv.js"></script>
+        <![endif]-->
+
+<!-- Fav and touch icons -->
+
+
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<form action="." method="post">
+			<input type="hidden" name="acao" value="AutenticaUsuario" /> email:
+			<input type="text" name="email" /><br /> senha: <input
+				type="password" name="senha" /><br /> <input type="submit"
+				value="Entrar" /><br />
+		</form>
+
+		<footer>
+		
+
+
+		</footer>
+
+	</div>
+	<!-- /container -->
+
+	<!-- Le javascript
+        ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+
+
+
+</body>
+</html>
